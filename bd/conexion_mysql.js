@@ -1,18 +1,8 @@
-const mysql = require('mysql');
-const database = {
-    host : 'localhost',
-    user : 'tele2026',
-    password : '2026tele',
-    database : 'datos'
-};
+const { createClient } = require('@supabase/supabase-js');
 
-const conexion = mysql.createConnection(database);
+const supabaseUrl = 'https://omqdwavqyokpsfxgmfjn.supabase.co';
+const supabaseKey = 'sb_publishable_gtp4PbDxYgCpRxA4X6cAIA_Bh1nQh95';
 
-conexion.connect(function (err) {
-    if (err) {
-        console.error('Error en la conexión de la base de datos:',err);
-        process.exit();
-    }
-});
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-module.exports = conexion;
+module.exports = supabase;
